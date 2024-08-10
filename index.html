@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Change paragraph using event listener</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		html, body {
+			width: 100%;
+			height: 100%;
+		}
+		body {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			transition: background 2s ease-in-out; 
+		}
+		.container {
+			width: 50%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			gap: 20px;
+			color: #F9F6EE;
+			padding: 10px;
+			text-align: center;
+			border-radius: 20px 20px 20% 20%;
+			background: rgba(0, 0, 0, 0.5);
+			backdrop-filter: blur( 4px );
+		}
+		.container p{
+			font-size: 20px;
+			line-height: 25px;
+			font-family: papyrus;
+
+		}
+		#btn{
+			padding: 15px 35px;
+			font-size: 18px;
+			background-color: rgba(255, 255, 255, .3);
+			border-radius: 10px;
+			border:none;
+			outline: none;
+			color:#dadada;
+			opacity: .9;
+		}
+		#btn:hover{
+			opacity:1;
+		}
+		.bg-one {
+			background: url(https://images.unsplash.com/photo-1719512824569-1695557f36cc?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D) no-repeat center center;
+		}
+		.bg-two {
+			background: url(https://images.unsplash.com/photo-1664431106202-1acb43c02786?q=80&w=1785&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D) no-repeat center center;
+		}
+	</style>
+</head>
+<body class="bg-one">
+
+	<div class="container">
+
+		<!-- paragraph -->
+		<h1>iCodeGuru Assignment 4</h1>
+
+		<p id="para">Nature, with its boundless beauty and diversity, is the cradle of life and the essence of our planet. From towering mountains that scrape the sky to the vast oceans that cradle countless mysteries, nature showcases a symphony of life that is both intricate and awe-inspiring. The gentle rustle of leaves in a forest, the vibrant colors of a blooming meadow, and the tranquil flow of a winding river all remind us of the delicate balance and harmony that exist in the natural world. It is in nature's embrace that we find solace, inspiration, and a reminder of the interconnection between all living things, urging us to protect and cherish the environment that sustains us.</p>
+
+		<!-- button -->
+		<button id="btn" type="button">Change</button>
+	</div>
+
+	<script>
+
+		//selection
+
+		var para = document.getElementById('para');
+		var btn = document.getElementById('btn');
+		var body = document.querySelector('body');
+
+		//toggle
+
+		var originalText = para.innerText;
+		var btnText = btn.innerText; 
+
+		btn.addEventListener("click", function() {
+			
+
+			if (para.innerText === originalText) {
+				para.innerText = "Hello World!";
+				btn.innerText = "Change again";
+				body.classList.remove('bg-one');
+				body.classList.add('bg-two');
+			} else {
+				para.innerText = originalText;
+				btn.innerText = btnText; 
+				body.classList.remove('bg-two');
+				body.classList.add('bg-one');
+			}
+		});
+	</script>
+</body>
+</html>
